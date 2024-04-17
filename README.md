@@ -10,6 +10,8 @@ This simpe converter takes an integer from 1 up to 10,000 and converts it to Rom
 
 [Usage](#usage)
 
+[Screenshots](#screenshots)
+
 [License](#license)
 
 [Contribution](#contribution)
@@ -18,11 +20,20 @@ This simpe converter takes an integer from 1 up to 10,000 and converts it to Rom
 
 [Questions](#questions)
 
+[Links](#links)
+
 ## Installation
 No installation required.
 
 ## Usage
 Enter an integer from 1-10000 into the input field and either click the convert button or press enter. 
+
+## Screenshots
+Homepage
+<img src="./assets/Screenshot_1.png">
+
+Sample
+<img src="./assets/Screenshot_2.png">
 
 ## License
 This project is protected under the MIT license.
@@ -35,3 +46,9 @@ No testing has been written so far.
 
 ## Questions
 For any questions or suggestions, please reach me at github.com/Levi-Man or at indra.levi.manahan@gmail.com.
+
+## Links
+
+Deployed Site: https://levi-man.github.io/intToRomanNumerals/
+
+Github Repo: https://github.com/Levi-Man/intToRomanNumerals 
