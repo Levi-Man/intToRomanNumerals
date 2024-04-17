@@ -30,10 +30,10 @@ Enter an integer from 1-10000 into the input field and either click the convert 
 
 ## Screenshots
 Homepage
-<img src="./assets/Screenshot_1.png">
+<img src="./assets/Screenshot_2.png">
 
 Sample
-<img src="./assets/Screenshot_2.png">
+<img src="./assets/Screenshot_1.png">
 
 ## License
 This project is protected under the MIT license.
