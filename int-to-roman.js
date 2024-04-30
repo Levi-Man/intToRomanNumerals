@@ -14,20 +14,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Function to handle conversion based on input type
     var handleConversion = function () {
         // Retrieve the input value
         var input = document.getElementById("inputInteger").value.trim();
 
         // Check if the input is empty
         if (input) {
-            // Determine if the input is a Roman numeral or an integer
-            if (!isNaN(parseInt(input))) {
-                // Convert integer to Roman numeral
-                var romanNumeral = intToRoman(parseInt(input));
-                // Update the result display
-                document.getElementById("result").innerText = "Roman Numeral: " + romanNumeral;
-            } else {
+            // Validate input for integers
+            if (/^\d+$/.test(input)) { // Check if input consists only of digits
+                var number = parseInt(input);
+                if (number <= 3999999) {
+                    // Convert integer to Roman numeral
+                    var romanNumeral = intToRoman(number);
+                    // Update the result display
+                    document.getElementById("result").innerText = "Roman Numeral: " + romanNumeral;
+                } else {
+                    // Display an error message for integers exceeding the limit
+                    document.getElementById("result").innerText = "Integer value should be less than or equal to 3,999,999.";
+                }
+            } else if (/^[IVXLCDM]+$/.test(input.toUpperCase())) { // Validate input for Roman numerals
                 // Convert Roman numeral to integer
                 var integer = romanToInt(input.toUpperCase());
                 // Check if the Roman numeral is valid
@@ -38,6 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     // Display an error message for invalid Roman numeral
                     document.getElementById("result").innerText = "Invalid Roman numeral.";
                 }
+            } else {
+                // Display an error message for invalid input format
+                document.getElementById("result").innerText = "Invalid input format. Please enter a valid integer or Roman numeral.";
             }
         } else {
             // Display an error message for empty input
@@ -53,19 +61,27 @@ document.addEventListener("DOMContentLoaded", function () {
             if (num >= 1000000) {
                 result += "M̄";
                 num -= 1000000;
-            }
-            else if (num >= 900000) {
+            } else if (num >= 900000) {
                 result += "C̄M̄";
                 num -= 900000;
             } else if (num >= 500000) {
                 result += "D̄";
                 num -= 500000;
+            } else if (num >= 400000) {
+                result += "C̄D̄";
+                num -= 400000
             } else if (num >= 100000) {
                 result += "C̄";
                 num -= 100000;
+            } else if (num >= 90000) {
+                result += "X̅C̄";
+                num -= 90000;
             } else if (num >= 50000) {
                 result += "L̄";
                 num -= 50000;
+            } else if (num >= 40000) {
+                result += "X̅L̄";
+                num -= 40000;
             } else if (num >= 10000) {
                 result += "X̅";
                 num -= 10000;
@@ -134,19 +150,19 @@ document.addEventListener("DOMContentLoaded", function () {
             C: 100,
             D: 500,
             M: 1000,
-            V̅: 5000,
-            X̅: 10000,
-            L̄: 50000,
-            C̄: 100000,
-            D̄: 500000,
-            M̄: 1000000
+            // V̅: 5000,
+            // X̅: 10000,
+            // L̄: 50000,
+            // C̄: 100000,
+            // D̄: 500000,
+            // M̄: 1000000
 
         };
 
         for (let i = 0; i < str.length; i++) {
             var currentNumber = str[i];
             var nextNumber = str[i + 1];
-
+            
             var currentValue = numerals[currentNumber];
             var nextValue = numerals[nextNumber];
 
@@ -155,6 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 int += currentValue
             }
+            console.log(currentNumber);
         }
         return int;
     };
