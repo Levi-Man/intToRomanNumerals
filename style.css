@@ -26,6 +26,7 @@ body {
     padding: 1rem 1.5rem 1.5rem 1.5rem;
     border: thick double rgb(255, 2, 221);
     border-radius: 1rem;
+    word-wrap: break-word;
     /* box-shadow: */
 }
 
