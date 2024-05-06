@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to convert Roman numeral to integer
     var romanToInt = function (str) {
-        let int = 0
+        let int = 0;
         var numerals = {
             I: 1,
             V: 5,
@@ -156,23 +156,28 @@ document.addEventListener("DOMContentLoaded", function () {
             // C̄: 100000,
             // D̄: 500000,
             // M̄: 1000000
-
         };
-
+    
         for (let i = 0; i < str.length; i++) {
             var currentNumber = str[i];
             var nextNumber = str[i + 1];
             
+            if (!numerals.hasOwnProperty(currentNumber)) {
+                // If the current character is not a valid Roman numeral
+                console.log("Invalid Roman numeral: " + currentNumber);
+                return NaN; // Or any other indication of invalid input
+            }
+    
             var currentValue = numerals[currentNumber];
-            var nextValue = numerals[nextNumber];
-
+            var nextValue = nextNumber ? numerals[nextNumber] : 0;
+    
             if (currentValue < nextValue) {
                 int -= currentValue;
             } else {
-                int += currentValue
+                int += currentValue;
             }
-            console.log(currentNumber);
         }
         return int;
     };
+    
 });
