@@ -1,12 +1,13 @@
 body {
     background-image: url("./assets/background1.jpeg");
-    background-size: cover;
-    background-repeat:repeat-y;
+    background-size:cover;
+    /* background-repeat:repeat-y; */
+    background-attachment: fixed;
     background-position: center;
 }
 
 .bold-center {
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: bold;
     color: rgb(255, 2, 221);
     text-align: center;
@@ -27,6 +28,7 @@ body {
     border: thick double rgb(255, 2, 221);
     border-radius: 1rem;
     word-wrap: break-word;
+    font-size: 20;
     /* box-shadow: */
 }
 
